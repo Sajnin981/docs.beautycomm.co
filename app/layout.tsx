@@ -36,15 +36,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/beautycomm-logo.jpeg?v=20261024',
+        url: '/beautycomm-icon.jpeg',
         type: 'image/jpeg',
         sizes: '1080x1080',
       },
     ],
-    shortcut: '/beautycomm-logo.jpeg?v=20261024',
+    shortcut: '/beautycomm-icon.jpeg',
     apple: [
       {
-        url: '/beautycomm-logo.jpeg?v=20261024',
+        url: '/beautycomm-icon.jpeg',
         type: 'image/jpeg',
         sizes: '1080x1080',
       },

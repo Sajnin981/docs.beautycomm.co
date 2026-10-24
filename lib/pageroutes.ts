@@ -4,6 +4,7 @@ export type Paths =
   | {
       title: string
       href: string
+      absolute?: true
       noLink?: true
       heading?: string
       icon?: string
@@ -34,7 +35,10 @@ function getAllLinks(node: Paths): Page[] {
   if (isRoute(node) && node.items) {
     node.items.forEach((subNode) => {
       if (isRoute(subNode)) {
-        const temp = { ...subNode, href: `${node.href}${subNode.href}` }
+        const temp = {
+          ...subNode,
+          href: subNode.absolute ? subNode.href : `${node.href}${subNode.href}`,
+        }
         pages.push(...getAllLinks(temp))
       }
     })

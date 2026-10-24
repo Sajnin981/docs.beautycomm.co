@@ -74,7 +74,7 @@ export function helperSearch(
   const lowerQuery = query.toLowerCase()
 
   if (isRoute(node)) {
-    const nextLink = `${prefix}${node.href}`
+    const nextLink = node.absolute ? node.href : `${prefix}${node.href}`
 
     const titleMatch = node.title.toLowerCase().includes(lowerQuery)
     const titleDistance = memoizedSearchMatch(lowerQuery, node.title.toLowerCase())

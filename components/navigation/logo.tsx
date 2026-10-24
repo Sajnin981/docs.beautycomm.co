@@ -28,7 +28,7 @@ export function Logo() {
           {Settings.title}
         </span>
         <span className="mt-0.5 hidden text-[0.55rem] font-medium uppercase tracking-[0.12em] text-[var(--text-secondary)] sm:block">
-          Your Beauty Shop With AI
+          E-commerce Platform for Beauty Businesses
         </span>
       </span>
     </Link>

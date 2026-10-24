@@ -1,20 +1,43 @@
 ---
 title: "Order Management"
-description: "Work with customer orders."
-keywords: ["BeautyComm", "Order Management"]
+description: "Find customer orders, review their status, and follow the store's processing steps."
+keywords: ["BeautyComm", "Orders", "Order Management", "Fulfillment"]
 ---
 
-Work with customer orders.
-
-An order is a customer purchase, from the moment it is placed to when it is delivered or closed.
+This guide is for BeautyComm business clients and staff handling customer orders. Use the order record as the source of truth, and update it only when the real-world step has happened.
 
 <CardGrid>
-  <Card title="Understanding Orders" description="" href="/docs/user-portal/order-management/understanding-orders" />
-  <Card title="Viewing the Order List" description="" href="/docs/user-portal/order-management/viewing-the-order-list" />
-  <Card title="Opening Order Details" description="" href="/docs/user-portal/order-management/opening-order-details" />
-  <Card title="Understanding Order Statuses" description="" href="/docs/user-portal/order-management/understanding-order-statuses" />
-  <Card title="Updating Order Information" description="" href="/docs/user-portal/order-management/updating-order-information" />
-  <Card title="Processing Orders" description="" href="/docs/user-portal/order-management/processing-orders" />
-  <Card title="Handling Order Problems" description="" href="/docs/user-portal/order-management/handling-order-problems" />
-  <Card title="Order Management Troubleshooting" description="" href="/docs/user-portal/order-management/order-management-troubleshooting" />
+  <Card title="Find and Review an Order" description="Locate the order and check its details." href="#find-and-review-an-order" />
+  <Card title="Process and Update an Order" description="Move the order through the store's fulfillment workflow." href="#process-and-update-an-order" />
+  <Card title="Payment, Invoice, and Refund" description="Review payment information and available order documents." href="#payment-invoice-and-refund" />
+  <Card title="Supplier Orders and Delivery" description="Distinguish customer fulfillment from supplier replenishment." href="#supplier-orders-and-delivery" />
+  <Card title="Resolve an Order Problem" description="Check common issues and collect information for support." href="#resolve-an-order-problem" />
 </CardGrid>
+
+## Find and Review an Order
+
+Use the order list, search, or filters to find the order reference. Confirm the customer and store before opening the record. Review the items, selected variants, quantities, total, payment state, delivery details, and current status.
+
+<Screenshot alt="BeautyComm order list" label="Add a screenshot of the order list and search filters" />
+
+## Process and Update an Order
+
+Follow the status labels shown in the store and the business fulfillment procedure. Before processing, confirm that the order is valid and check its payment state. Update the status only after the corresponding step has occurred. Verify any saved change in the order record.
+
+<Screenshot alt="BeautyComm order details and status" label="Add a screenshot of an order detail and status controls" />
+
+## Payment, Invoice, and Refund
+
+Payment status and order status describe different parts of the order. Review the current transaction information before confirming payment, retrying, or promising a refund. Download an invoice or receipt only when the order offers one.
+
+Returns, cancellations, and refunds depend on the store policy and order state. Follow the approved process and record the result in the order when the system allows it.
+
+## Supplier Orders and Delivery
+
+Supplier orders are for replenishing stock; customer orders are for shoppers. Verify the supplier, product, and requested amount before acting on a supplier order. For customer delivery, check the delivery provider and tracking details where configured. Pathao or RedX options are available only when enabled for the store.
+
+## Resolve an Order Problem
+
+If an order is missing or not updating, check the reference, filters, store, and latest status. Compare payment or tracking details with the relevant provider record. When escalating, include the order reference, time, expected result, actual result, and error message. Do not include passwords or full payment-card details.
+
+**Related guides:** [Payments and Shipping](/docs/user-portal/payments-and-shipping) · [Stock, Suppliers, and Fulfillment](/docs/admin-panel/stock-suppliers-and-fulfillment)

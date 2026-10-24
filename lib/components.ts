@@ -5,7 +5,6 @@ import { Route } from '@/components/markdown/link'
 import { Mermaid } from '@/components/markdown/mermaid'
 import { Note } from '@/components/markdown/note'
 import { ReleaseEntry } from '@/components/markdown/release'
-import { RoadmapItem } from '@/components/markdown/roadmap'
 import { Screenshot } from '@/components/markdown/screenshot'
 import { Step, StepItem } from '@/components/markdown/step'
 import { Pre } from '@/components/ui/pre'
@@ -22,7 +21,6 @@ export const components = {
   Note,
   pre: Pre,
   ReleaseEntry,
-  RoadmapItem,
   Screenshot,
   Step,
   StepItem,

@@ -14,14 +14,29 @@ function isRoute(item: Paths): item is Extract<Paths, { title: string; href: str
   return 'title' in item && 'href' in item
 }
 
+function hasActiveDescendant(item: Paths, pathname: string, parentHref: string): boolean {
+  if (!isRoute(item)) return false
+
+  const href = item.absolute ? `/docs${item.href}` : `${parentHref}${item.href}`
+  if (pathname === href || pathname.startsWith(`${href}/`)) return true
+  return item.items?.some((child) => hasActiveDescendant(child, pathname, href)) ?? false
+}
+
 export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
   const path = usePathname()
   const [isOpen, setIsOpen] = useState(
-    () => isRoute(props) && (path === props.href || path.startsWith(`${props.href}/`))
+    () =>
+      isRoute(props) &&
+      (path === props.href ||
+        path.startsWith(`${props.href}/`) ||
+        (props.items?.some((child) => hasActiveDescendant(child, path, props.href)) ?? false))
   )
 
   useEffect(() => {
-    if (isRoute(props) && props.href && path !== props.href && path.includes(props.href)) {
+    if (
+      isRoute(props) &&
+      props.items?.some((child) => hasActiveDescendant(child, path, props.href))
+    ) {
       Promise.resolve().then(() => setIsOpen(true))
     }
   }, [path, props])
@@ -94,7 +109,9 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
 
               const modifiedItems = {
                 ...innerLink,
-                href: `${href}${innerLink.href}`,
+                href: innerLink.absolute
+                  ? `/docs${innerLink.href}`
+                  : `${href}${innerLink.href}`,
                 level: level + 1,
                 isSheet,
               }

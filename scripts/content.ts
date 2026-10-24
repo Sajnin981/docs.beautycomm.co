@@ -46,7 +46,7 @@ function findDocumentBySlug(slug: string): Paths | null {
   function searchDocs(docs: Paths[], currentPath = ''): Paths | null {
     for (const doc of docs) {
       if (isRoute(doc)) {
-        const fullPath = currentPath + doc.href
+        const fullPath = doc.absolute ? doc.href : currentPath + doc.href
         if (fullPath === slug) return doc
         if (doc.items) {
           const found: Paths | null = searchDocs(doc.items, fullPath)
@@ -160,10 +160,11 @@ async function processMdxFile(filePath: string) {
 
   const slug = createSlug(filePath)
   const matchedDoc = findDocumentBySlug(slug)
+  if (!matchedDoc || !isRoute(matchedDoc)) return null
 
   return {
     slug,
-    title: frontmatter.title || (matchedDoc && isRoute(matchedDoc) ? matchedDoc.title : 'Untitled'),
+    title: frontmatter.title || matchedDoc.title,
     description: frontmatter.description || '',
     content: documentContent,
     _searchMeta: {
@@ -200,7 +201,9 @@ async function convertMdxToJson() {
 
     for (const file of mdxFiles) {
       const jsonData = await processMdxFile(file)
-      combinedData.push(jsonData)
+      if (jsonData) {
+        combinedData.push(jsonData)
+      }
     }
 
     const combinedOutputPath = path.join(outputDir, 'documents.json')

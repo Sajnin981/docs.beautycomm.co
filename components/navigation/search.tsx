@@ -17,6 +17,7 @@ import { advanceSearch, cn, debounce, highlight, type search } from '@/lib/utils
 import { Documents } from '@/settings/documents'
 
 interface Document {
+  absolute?: boolean
   href?: string
   items?: Document[]
   noLink?: boolean
@@ -79,7 +80,7 @@ export function Search() {
         return []
       }
 
-      const href = doc.href ? `${parentHref}${doc.href}` : ''
+      const href = doc.href ? (doc.absolute ? `/docs${doc.href}` : `${parentHref}${doc.href}`) : ''
 
       return [
         !doc.noLink && doc.href && (
@@ -97,7 +98,10 @@ export function Search() {
           </DialogClose>
         ),
 
-        ...renderDocuments(doc.items?.filter((item) => !item.noLink) || [], `${href}`),
+        ...renderDocuments(
+          doc.items?.filter((item) => !item.noLink || item.items?.length) || [],
+          `${href}`
+        ),
       ]
     })
   }

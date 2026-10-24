@@ -6,7 +6,7 @@ export const gtmconnected = false
 
 export const sitename = 'BeautyComm'
 export const description =
-  'BeautyComm help center and product guidance for customers, team members, and partners.'
+  'BeautyComm documentation for e-commerce business clients and customers shopping on BeautyComm-powered stores.'
 export const keywords = [
   'BeautyComm',
   'beauty commerce',
