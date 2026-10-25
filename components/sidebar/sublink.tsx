@@ -67,7 +67,10 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
       Comp
     )
   ) : (
-    <h2 className="font-semibold text-[var(--text-primary)] sm:text-sm">{title}</h2>
+    <h2 className="flex min-w-0 items-center gap-2 font-semibold text-[var(--text-primary)] sm:text-sm">
+      {Icon && <Icon aria-hidden className="h-4 w-4 shrink-0 text-[var(--brand-action)]" />}
+      {title}
+    </h2>
   )
 
   if (!items) {
@@ -109,9 +112,7 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
 
               const modifiedItems = {
                 ...innerLink,
-                href: innerLink.absolute
-                  ? `/docs${innerLink.href}`
-                  : `${href}${innerLink.href}`,
+                href: innerLink.absolute ? `/docs${innerLink.href}` : `${href}${innerLink.href}`,
                 level: level + 1,
                 isSheet,
               }

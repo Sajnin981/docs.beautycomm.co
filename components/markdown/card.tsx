@@ -14,7 +14,7 @@ interface CardProps extends PropsWithChildren {
   image?: string
   subtitle?: string
   title: string
-  variant?: 'normal' | 'small' | 'image'
+  variant?: 'normal' | 'small' | 'image' | 'directory'
 }
 
 export function Card({
@@ -38,9 +38,11 @@ export function Card({
         'group relative flex overflow-hidden rounded-lg border bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900 hover:dark:shadow-md',
         variant === 'small'
           ? 'items-center space-x-2 p-3'
-          : variant === 'image'
-            ? 'h-full flex-col justify-between p-0'
-            : 'h-full flex-col justify-between p-4',
+          : variant === 'directory'
+            ? 'h-full min-h-28 items-center p-4 text-left'
+            : variant === 'image'
+              ? 'h-full flex-col justify-between p-0'
+              : 'h-full flex-col justify-between p-4',
         className
       )}
     >
@@ -71,7 +73,13 @@ export function Card({
         <div
           className={clsx(
             'font-semibold transition-all duration-300 group-hover:font-bold',
-            variant === 'small' ? 'text-sm' : variant === 'image' ? 'p-4 text-sm' : 'text-lg',
+            variant === 'small'
+              ? 'text-sm'
+              : variant === 'directory'
+                ? 'line-clamp-2 min-h-10 text-base leading-5'
+                : variant === 'image'
+                  ? 'p-4 text-sm'
+                  : 'text-lg',
             className
           )}
         >
@@ -82,6 +90,11 @@ export function Card({
             {description}
           </p>
         )}
+        {description && variant === 'directory' && (
+          <p className="mt-2 line-clamp-2 text-sm font-normal leading-5 text-gray-600 dark:text-gray-400">
+            {description}
+          </p>
+        )}
       </div>
       {children}
     </div>
@@ -89,7 +102,7 @@ export function Card({
 
   return href ? (
     <Link
-      className="no-underline!"
+      className={clsx('no-underline!', variant === 'directory' && 'block h-full')}
       href={href}
       rel={external ? 'noopener noreferrer' : undefined}
       target={external ? '_blank' : undefined}
@@ -101,6 +114,10 @@ export function Card({
   )
 }
 
-export function CardGrid({ children }: PropsWithChildren) {
-  return <div className="grid grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3">{children}</div>
+export function CardGrid({ children, className }: PropsWithChildren<{ className?: string }>) {
+  return (
+    <div className={clsx('grid grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3', className)}>
+      {children}
+    </div>
+  )
 }

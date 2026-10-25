@@ -36,8 +36,8 @@ export default async function Pages({ params }: PageProps) {
           <p className="text-sm text-[var(--text-secondary)]">{frontmatter.description}</p>
           {frontmatter.status === 'draft' && (
             <p className="rounded-md border border-dashed border-[var(--border-strong)] bg-[var(--surface-soft)] px-3 py-2 text-xs text-[var(--text-secondary)]">
-              This guide is an initial draft. Screen names, buttons and options may differ in your
-              Beautycomm account.
+              Proposed documentation scope — this capability and its workflows require product-owner
+              confirmation. This page does not assert that the feature is available.
             </p>
           )}
           <Separator />

@@ -4,6 +4,7 @@ export type Paths =
   | {
       title: string
       href: string
+      description?: string
       absolute?: true
       noLink?: true
       heading?: string
@@ -49,4 +50,9 @@ function getAllLinks(node: Paths): Page[] {
 
 export const PageRoutes = Routes.flatMap((it) => getAllLinks(it))
 
-export const PageTitles = new Map(PageRoutes.map((page) => [page.href, page.title]))
+export const PageTitles = new Map([
+  ...PageRoutes.map((page) => [page.href, page.title] as const),
+  ...Routes.flatMap((item) =>
+    isRoute(item) && item.noLink ? ([[item.href, item.title]] as const) : []
+  ),
+])

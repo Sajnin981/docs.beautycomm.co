@@ -1,5 +1,3 @@
-import { PageRoutes } from '@/lib/pageroutes'
-
 export type NavItem = {
   title: string
   href: string
@@ -10,7 +8,7 @@ export type NavItem = {
 export const Navigations: NavItem[] = [
   {
     title: 'Overview',
-    href: `/docs${PageRoutes[0].href}`,
+    href: '/docs/overview',
   },
   {
     title: 'Support',

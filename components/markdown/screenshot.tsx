@@ -5,7 +5,9 @@ import { cn } from '@/lib/utils'
 interface ScreenshotProps {
   align?: 'left' | 'center' | 'right'
   alt: string
+  annotationNotes?: string
   caption?: string
+  description?: string
   label?: string
   src?: string
   step?: number
@@ -16,8 +18,10 @@ interface ScreenshotProps {
 // Add real files under public/images/<surface>/ and pass src="/images/<surface>/file.png".
 export function Screenshot({
   alt,
+  annotationNotes,
   align = 'center',
   caption,
+  description,
   label,
   src,
   step,
@@ -46,13 +50,23 @@ export function Screenshot({
       ) : (
         <div
           aria-label={`Screenshot placeholder: ${alt}`}
-          className="flex min-h-40 flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-[var(--beauty-purple)]/60 bg-[var(--surface-highlight)] px-4 py-8 text-center"
+          className="flex aspect-video min-h-40 flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-[var(--beauty-purple)]/60 bg-[var(--surface-highlight)] px-4 py-8 text-center"
           role="img"
         >
           <LuImage aria-hidden className="h-6 w-6 text-[var(--brand-action)]" />
           <p className="text-sm font-medium text-[var(--text-primary)]">
-            [SCREENSHOT TO ADD: {label ?? alt}]
+            [SCREENSHOT: {label ?? alt}]
           </p>
+          {description && (
+            <p className="max-w-xl text-xs text-[var(--text-secondary)]">
+              [SCREENSHOT DESCRIPTION: {description}]
+            </p>
+          )}
+          {annotationNotes && (
+            <p className="max-w-xl text-xs text-[var(--text-secondary)]">
+              [ANNOTATION NOTES: {annotationNotes}]
+            </p>
+          )}
         </div>
       )}
       {(caption || step) && (

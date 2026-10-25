@@ -6,6 +6,7 @@ import { Mermaid } from '@/components/markdown/mermaid'
 import { Note } from '@/components/markdown/note'
 import { ReleaseEntry } from '@/components/markdown/release'
 import { Screenshot } from '@/components/markdown/screenshot'
+import { SectionCards } from '@/components/markdown/section-cards'
 import { Step, StepItem } from '@/components/markdown/step'
 import { Pre } from '@/components/ui/pre'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -22,6 +23,7 @@ export const components = {
   pre: Pre,
   ReleaseEntry,
   Screenshot,
+  SectionCards,
   Step,
   StepItem,
   Tabs,

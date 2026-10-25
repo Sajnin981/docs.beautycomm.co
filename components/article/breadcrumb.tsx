@@ -9,7 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { PageTitles } from '@/lib/pageroutes'
+import { PageRoutes, PageTitles } from '@/lib/pageroutes'
 import { Link } from '@/lib/transition'
 
 interface BreadcrumbProps {
@@ -32,6 +32,7 @@ export function ArticleBreadcrumb({ paths }: BreadcrumbProps) {
           const key = `/${paths.slice(0, index + 1).join('/')}`
           const title = PageTitles.get(key) ?? paths[index]
           const isLast = index === paths.length - 1
+          const isRoutable = PageRoutes.some((route) => route.href === key)
 
           return (
             <Fragment key={key}>
@@ -39,12 +40,14 @@ export function ArticleBreadcrumb({ paths }: BreadcrumbProps) {
               <BreadcrumbItem>
                 {isLast ? (
                   <BreadcrumbPage>{title}</BreadcrumbPage>
-                ) : (
+                ) : isRoutable ? (
                   <BreadcrumbLink asChild>
                     <Link href={`/docs${key}`} title={title}>
                       {title}
                     </Link>
                   </BreadcrumbLink>
+                ) : (
+                  <span>{title}</span>
                 )}
               </BreadcrumbItem>
             </Fragment>

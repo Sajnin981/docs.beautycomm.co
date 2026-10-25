@@ -47,7 +47,7 @@ function findDocumentBySlug(slug: string): Paths | null {
     for (const doc of docs) {
       if (isRoute(doc)) {
         const fullPath = doc.absolute ? doc.href : currentPath + doc.href
-        if (fullPath === slug) return doc
+        if (fullPath === slug && !doc.noLink) return doc
         if (doc.items) {
           const found: Paths | null = searchDocs(doc.items, fullPath)
           if (found) return found
