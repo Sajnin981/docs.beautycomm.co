@@ -14,24 +14,146 @@ First identify which experience you are using. **BeautyComm business clients and
   <Card title="Mobile Troubleshooting" description="Review issues affecting mobile access or app behavior." href="#mobile-troubleshooting" />
 </CardGrid>
 
+These troubleshooting steps are for BeautyComm business clients and staff. Shoppers should contact the store where they placed an order. If a suggested fix does not resolve the issue, contact support and include the relevant details from [Support and Feedback](/docs/support).
+
 ## Login and Access
 
-For a business account, confirm the correct business environment, account status, and assigned role. For a shopper account, confirm that you are signing in to the correct store account and use that store’s password-recovery process.
+**I cannot log in.**
+
+- *Likely cause:* wrong email or password, or an inactive account.
+- *What to do:* check the email spelling, then click **Forgot Password**. If the reset email does not arrive, check spam and ask your administrator to confirm your account is active.
+
+   <Screenshot alt="BeautyComm support Login and Access screenshot" label="Capture for Login and Access" description="Capture: Login error message. Suggested filename: troubleshooting/login/01-login-error.png" caption="troubleshooting/login/01-login-error.png" />
+
+**The reset email or code did not arrive.**
+
+- *Likely cause:* wrong email address on the account, or the message was filtered.
+- *What to do:* check spam and junk folders, wait a few minutes, then ask your administrator to confirm your email address.
+
+**I am logged in but cannot see a page or button.**
+
+- *Likely cause:* your role does not include that permission.
+- *What to do:* ask your administrator to review your role in **Staff & Role Permissions**. Log out and log in again after the change.
+
+**I keep getting logged out.**
+
+- *Likely cause:* session timeout for security, or browser settings blocking cookies.
+- *What to do:* log in again, allow cookies for the Admin Panel, and avoid using the same account on many devices at the same time.
 
 ## Product and Inventory Issues
 
-Problems with product visibility or inventory often involve the item not being published, stock not updating, or the wrong business context being selected. Review the product or stock record before escalating.
+**A product does not appear on the storefront.**
+
+- *Likely cause:* the status is not Active, there is no stock, the category is hidden, or the required fields are missing.
+- *What to do:* open the product and check its status, category and stock. Save, then refresh the storefront.
+
+   <Screenshot alt="BeautyComm support Product and Inventory Issues screenshot" label="Capture for Product and Inventory Issues" description="Capture: Product status and visibility settings. Suggested filename: troubleshooting/products/01-visibility.png" caption="troubleshooting/products/01-visibility.png" />
+
+**Stock numbers look wrong.**
+
+- *Likely cause:* an order, return or manual change has not been recorded, or stock is set per shade or location.
+- *What to do:* open **Inventory** and check the stock history for the product to see each change. Correct it with **Adjust Stock** and add a reason.
+
+   <Screenshot alt="BeautyComm support Product and Inventory Issues screenshot" label="Capture for Product and Inventory Issues" description="Capture: Stock history list. Suggested filename: troubleshooting/products/02-stock-history.png" caption="troubleshooting/products/02-stock-history.png" />
+
+**A shade or variation cannot be selected.**
+
+- *Likely cause:* that variation has zero stock or is inactive.
+- *What to do:* open the product, go to **Variations**, and check the stock and status of each option.
+
+**Product images do not show or look stretched.**
+
+- *Likely cause:* the file is too large, the format is unsupported or the sizes are wrong.
+- *What to do:* upload a compressed JPG, PNG or WebP at the recommended size [add size], and replace the old image.
+
+**A price or discount is not showing correctly.**
+
+- *Likely cause:* a flash sale, coupon or campaign is overriding the normal price, or it has expired.
+- *What to do:* check **Flash Sales** and **Coupons** for rules that apply to the product, and check their dates.
 
 ## Order and Customer Issues
 
-For business teams, check the order or customer record, filters, permissions, and store context. Shoppers should contact the store with the order reference if their order is missing or its status is unclear.
+**An order is missing.**
+
+- *Likely cause:* the payment was not completed, the order is under a different status filter, or the search used the wrong details.
+- *What to do:* clear all filters, search by order number or phone number, and check failed or pending payments.
+
+   <Screenshot alt="BeautyComm support Order and Customer Issues screenshot" label="Capture for Order and Customer Issues" description="Capture: Orders list with filters cleared. Suggested filename: troubleshooting/orders/01-missing-order.png" caption="troubleshooting/orders/01-missing-order.png" />
+
+**I cannot change an order's status.**
+
+- *Likely cause:* the order is already cancelled or completed, or your role does not allow it.
+- *What to do:* check the current status and your role. Ask an administrator if you need the permission.
+
+**A customer says they did not get a notification or email.**
+
+- *Likely cause:* wrong email, spam filter or notifications turned off.
+- *What to do:* check the customer's email in their profile, ask them to check spam, and check **Email & Push Notification Management** and the templates.
+
+**A customer cannot find their address or reward points.**
+
+- *Likely cause:* they are logged in with a different account, or points have not been added yet.
+- *What to do:* open the customer in **Customers**, check the details and points history, and adjust if needed with a reason.
+
+**A refund has not reached the customer.**
+
+- *Likely cause:* refunds take time depending on the payment method, or the refund has not been marked as processed.
+- *What to do:* open the return in **Returns** and check its refund status and method. Tell the customer the expected timeline from your Returns & Refund Policy.
 
 ## Reports and Integrations
 
-Report and integration issues typically involve filters, missing data, or delayed processing. Confirm the scope of the report and whether the underlying data source is current before escalating a problem.
+**Report numbers do not match what I expected.**
+
+- *Likely cause:* a different date range, filter or time zone is selected.
+- *What to do:* check the date range and filters, and confirm the store time zone in **Settings > General**. Refunded and cancelled orders may also be counted differently.
+
+   <Screenshot alt="BeautyComm support Reports and Integrations screenshot" label="Capture for Reports and Integrations" description="Capture: Report filters and date range. Suggested filename: troubleshooting/reports/01-filters.png" caption="troubleshooting/reports/01-filters.png" />
+
+**An export does not download.**
+
+- *Likely cause:* the browser blocked the download or the report is too large.
+- *What to do:* allow downloads for the Admin Panel, narrow the date range and try again.
+
+**Facebook Pixel or Google Tag Manager does not track events.**
+
+- *Likely cause:* a wrong ID, the integration is turned off or an ad blocker is on.
+- *What to do:* re-check the ID in the settings, save, then test with Facebook Pixel Helper or Tag Manager Preview mode in a browser without ad blockers.
+
+**The courier or payment gateway does not connect.**
+
+- *Likely cause:* wrong keys, Sandbox mode instead of Live mode, or an inactive account with the provider.
+- *What to do:* re-enter the credentials from your provider, check the mode and run **Test Connection**. Never share keys in screenshots or messages.
+
+**Social login does not work.**
+
+- *Likely cause:* a wrong Client ID or Secret, or the callback URL is missing in the provider's app settings.
+- *What to do:* copy the callback URL shown in **Social Login Configuration** into the provider's app, and re-enter the credentials.
 
 ## Mobile Troubleshooting
 
-For the shopper mobile app, check your network, app version, and customer sign-in. For an order or payment problem, contact the store. Business teams should contact their BeautyComm support channel for a problem in the admin workspace.
+**The app will not install or update.**
 
-**Related guides:** [Common Tasks](/docs/common-tasks) · [Support and Feedback](/docs/support)
+- *Likely cause:* not enough storage, an old phone system version or a store problem.
+- *What to do:* free up storage, check that your phone meets the minimum requirements [add versions], and try again from the Play Store or App Store.
+
+**The app crashes or shows a blank screen.**
+
+- *Likely cause:* an outdated app version or corrupted cache.
+- *What to do:* update the app, close and reopen it, clear the app cache (Android), or reinstall it. Log in again after reinstalling.
+
+**Push notifications do not arrive.**
+
+- *Likely cause:* notifications are blocked in phone settings, battery saver is on, or they are turned off inside the app.
+- *What to do:* allow notifications for BeautyComm in your phone's settings, turn off battery restrictions for the app, and check **Account > Settings > Notifications**.
+
+   <Screenshot alt="BeautyComm support Mobile Troubleshooting screenshot" label="Capture for Mobile Troubleshooting" description="Capture: Phone settings, app notification screen. Suggested filename: troubleshooting/mobile/01-notifications.png" caption="troubleshooting/mobile/01-notifications.png" />
+
+**The camera or barcode scanner does not work.**
+
+- *Likely cause:* camera permission was denied.
+- *What to do:* allow camera access for the app in your phone's settings and try again.
+
+**Products or prices differ between the app and the website.**
+
+- *Likely cause:* the app is showing cached data or an old version.
+- *What to do:* pull down to refresh, update the app, and check that the change was saved in the Admin Panel.

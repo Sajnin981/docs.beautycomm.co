@@ -1,39 +1,21 @@
 ---
 title: "Social Login Configuration"
-description: "Proposed Admin Portal guidance for social login configuration; feature availability and workflows require confirmation."
-keywords: ["Admin Portal","Social Login Configuration","BeautyComm"]
-status: "draft"
+description: "Let customers log in with their social accounts. To set it up:"
+keywords: ["BeautyComm","Admin Panel","Social Login Configuration"]
 ---
 
-## Overview
+Let customers log in with their social accounts. To set it up:
 
-This page will document social login configuration from the Admin Portal perspective. The topic is part of the proposed documentation scope; its availability and behavior have not been confirmed here.
+1. Go to **Settings > Social Login**.
 
-## Purpose and intended audience
+   <Screenshot alt="BeautyComm Admin Panel Social Login Configuration screenshot" label="Capture for Social Login Configuration" description="Capture: Social login settings. Suggested filename: admin/social-login/01-settings.png" caption="admin/social-login/01-settings.png" />
 
-Add the verified purpose, benefits, and intended user or operational role when product information is available.
+2. Choose a provider such as Google or Facebook.
+3. Create an app in the provider's developer console and copy its **Client ID** and **Client Secret** [blur both].
 
-## Access, interface, and workflows
+   <Screenshot alt="BeautyComm Admin Panel Social Login Configuration screenshot" label="Capture for Social Login Configuration" description="Capture: Provider credential form. Suggested filename: admin/social-login/02-credentials.png" caption="admin/social-login/02-credentials.png" />
 
-Add the confirmed navigation path, interface areas, supported actions, and task-specific instructions. No menu labels or actions are assumed in this placeholder.
+4. Add the callback URL shown on the page to the provider's app settings.
+5. Enable the provider and save, then test by logging in on the storefront.
 
-## Fields, validation, and expected results
-
-Document only verified fields, input requirements, permissions, outcomes, and status changes.
-
-## Common issues
-
-Add known issues and supported troubleshooting steps after they are confirmed.
-
-## Related documentation
-
-See [Dashboard & Best Practices](/docs/admin-portal/dashboard-and-best-practices) for related administrative guidance.
-
-## Screenshot placeholder
-
-<Screenshot
-  alt="Social Login Configuration interface"
-  label="Social Login Configuration interface"
-  description="Replace with a real BeautyComm Admin Portal screenshot after it is provided and approved."
-  annotationNotes="Add annotations only for verified interface elements."
-/>
+---
