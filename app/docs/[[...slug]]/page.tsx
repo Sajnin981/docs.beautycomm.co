@@ -27,19 +27,10 @@ export default async function Pages({ params }: PageProps) {
       <section className="w-full min-w-0 max-w-4xl flex-1">
         <ArticleBreadcrumb paths={slug} />
         <div className="mb-5 space-y-4">
-          <h1
-            className="text-3xl font-semibold text-[var(--text-primary)]"
-            style={{ fontFamily: 'var(--font-sora), sans-serif' }}
-          >
+          <h1 className="text-3xl font-semibold text-[var(--text-primary)]">
             {frontmatter.title}
           </h1>
           <p className="text-sm text-[var(--text-secondary)]">{frontmatter.description}</p>
-          {frontmatter.status === 'draft' && (
-            <p className="rounded-md border border-dashed border-[var(--border-strong)] bg-[var(--surface-soft)] px-3 py-2 text-xs text-[var(--text-secondary)]">
-              Proposed documentation scope — this capability and its workflows require product-owner
-              confirmation. This page does not assert that the feature is available.
-            </p>
-          )}
           <Separator />
         </div>
         <Typography>

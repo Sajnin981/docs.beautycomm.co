@@ -12,6 +12,8 @@ export function Footer() {
           className="font-semibold"
           href={Settings.link}
           title={Settings.name}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {Settings.name}
         </Link>
@@ -19,7 +21,12 @@ export function Footer() {
       </p>
       {Settings.branding !== false && (
         <div className="hidden items-center md:block">
-          <span className="font-semibold text-muted-foreground">Support center</span>
+          <Link
+            href="/docs/support"
+            className="font-semibold text-muted-foreground transition-colors hover:text-[var(--brand-action)]"
+          >
+            Support center
+          </Link>
         </div>
       )}
     </footer>

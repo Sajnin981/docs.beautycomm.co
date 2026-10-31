@@ -30,6 +30,34 @@ interface MdxHeaders {
   title: string
 }
 
+function normalizeHeadingIds() {
+  const usedIds = new Map<string, number>()
+
+  return (tree: Node) => {
+    visit(tree, 'element', (node: Element) => {
+      if (!/^h[2-4]$/.test(node.tagName)) return
+
+      const text = textContent(node)
+      const baseId = innerslug(text)
+      if (!baseId) return
+
+      const count = usedIds.get(baseId) ?? 0
+      usedIds.set(baseId, count + 1)
+      node.properties = {
+        ...node.properties,
+        id: count === 0 ? baseId : `${baseId}-${count + 1}`,
+      }
+    })
+  }
+}
+
+function textContent(node: Element): string {
+  if (!node.children?.length) return ''
+  return node.children
+    .map((child) => (child.type === 'text' ? child.value : child.type === 'element' ? textContent(child) : ''))
+    .join('')
+}
+
 async function parseMdx<Frontmatter>(rawMdx: string) {
   return await compileMDX<Frontmatter>({
     source: rawMdx,
@@ -42,6 +70,7 @@ async function parseMdx<Frontmatter>(rawMdx: string) {
           rehypeKatex,
           rehypePrism,
           rehypeSlug,
+          normalizeHeadingIds,
           rehypeAutolinkHeadings,
           postCopy,
         ],
@@ -117,6 +146,7 @@ export async function getTable(
     text: string
     href: string
   }[] = []
+  const usedIds = new Map<string, number>()
 
   let mdx = ''
   if (Settings.gitload) {
@@ -152,10 +182,13 @@ export async function getTable(
     const level = match[1].length
     const text = match[2].trim()
 
+    const baseId = innerslug(text)
+    const count = usedIds.get(baseId) ?? 0
+    usedIds.set(baseId, count + 1)
     extractedHeadings.push({
       level,
       text,
-      href: `#${innerslug(text)}`,
+      href: `#${count === 0 ? baseId : `${baseId}-${count + 1}`}`,
     })
 
     match = headingsRegex.exec(mdx)
@@ -168,6 +201,7 @@ function innerslug(text: string) {
   return text
     .trim()
     .toLowerCase()
+    .replace(/&/g, ' and ')
     .replace(/\s+/g, '-')
     .replace(/[^a-zA-Z0-9\u4e00-\u9fa5\-_]/g, '')
 }

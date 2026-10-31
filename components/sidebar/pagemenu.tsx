@@ -44,10 +44,11 @@ export function PageMenu({ isSheet = false }) {
         }
 
         const SectionIcon = item.icon ? navIcons[item.icon] : undefined
+        const showStandaloneHeading = !!item.heading && (!item.items || item.title !== item.heading)
 
         return (
           <div key={item.title + index}>
-            {item.heading && !item.noLink && (
+            {showStandaloneHeading && !item.noLink && (
               <div className="mb-2 flex min-w-0 items-center gap-2 text-sm font-semibold text-[var(--text-primary)]">
                 {SectionIcon && (
                   <SectionIcon aria-hidden className="h-4 w-4 text-[var(--brand-action)]" />

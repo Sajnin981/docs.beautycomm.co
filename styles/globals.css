@@ -42,6 +42,7 @@
 }
 
 .dark {
+  --beauty-purple: #e8b8ff;
   --text-primary: #fbf7fb;
   --text-secondary: #c5b8c8;
   --surface-primary: #211a25;
@@ -50,7 +51,7 @@
   --surface-highlight: #35253a;
   --border-subtle: #392d3b;
   --border-strong: #514054;
-  --brand-action: #d9baff;
+  --brand-action: #e8b8ff;
   --background: var(--surface-warm);
   --foreground: var(--text-primary);
   --card: var(--surface-primary);
@@ -118,6 +119,9 @@ html {
 .typography {
   @apply prose prose-headings:scroll-m-20 prose-code:rounded-md prose-code:p-1 prose-code:leading-6 prose-code:before:content-none prose-code:after:content-none prose-pre:border prose-img:rounded-md prose-img:border;
   @apply min-w-0 max-w-full pt-2 text-sm prose-code:text-xs;
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
   color: var(--text-primary);
   --tw-prose-body: var(--text-secondary);
   --tw-prose-headings: var(--text-primary);
@@ -139,6 +143,17 @@ html {
 
 .prose {
   margin: 0;
+}
+
+.typography :where(h1, h2, h3, h4) {
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.typography :where(p, li, td, th, blockquote) {
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
 }
 
 .typography table {

@@ -35,11 +35,13 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
   useEffect(() => {
     if (
       isRoute(props) &&
-      props.items?.some((child) => hasActiveDescendant(child, path, props.href))
+      (path === props.href ||
+        path.startsWith(`${props.href}/`) ||
+        props.items?.some((child) => hasActiveDescendant(child, path, props.href)))
     ) {
       Promise.resolve().then(() => setIsOpen(true))
     }
-  }, [path, props])
+  }, [path])
 
   if (!isRoute(props)) return
 
@@ -52,6 +54,14 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
       aria-current={path === href ? 'page' : undefined}
       className="block rounded-md border-l-2 border-transparent px-2 py-1.5 text-[var(--text-secondary)] transition-colors duration-150 hover:bg-[var(--surface-soft)] hover:text-[var(--brand-action)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
       href={href}
+      onClick={(event) => {
+        if (items && (path === href || path.startsWith(`${href}/`))) {
+          event.preventDefault()
+          setIsOpen((current) => !current)
+        } else if (items) {
+          setIsOpen(true)
+        }
+      }}
     >
       <span className="flex min-w-0 items-center gap-2 break-words">
         {Icon && <Icon aria-hidden className="h-4 w-4 shrink-0" strokeWidth={2} />}
@@ -110,9 +120,15 @@ export function SubLink(props: Paths & { level: number; isSheet: boolean }) {
                 return null
               }
 
+              const sectionPrefix = href.match(/^\/docs\/[^/]+/)?.[0]
+                ?? href.match(/^\/[^/]+/)?.[0]
+                ?? '/docs'
+              const sectionRoute = innerLink.href.startsWith(`${sectionPrefix}/`)
+                ? innerLink.href
+                : `${sectionPrefix}${innerLink.href}`
               const modifiedItems = {
                 ...innerLink,
-                href: innerLink.absolute ? `/docs${innerLink.href}` : `${href}${innerLink.href}`,
+                href: sectionRoute.startsWith('/docs/') ? sectionRoute : `/docs${sectionRoute}`,
                 level: level + 1,
                 isSheet,
               }

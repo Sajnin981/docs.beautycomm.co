@@ -7,12 +7,12 @@ export type NavItem = {
 
 export const Navigations: NavItem[] = [
   {
-    title: 'Overview',
-    href: '/docs/overview',
+    title: 'Roadmap',
+    href: '/docs/roadmap',
   },
   {
-    title: 'Support',
-    href: '/docs/support',
+    title: 'Changelog',
+    href: '/docs/changelog',
   },
   {
     title: 'View Demo',

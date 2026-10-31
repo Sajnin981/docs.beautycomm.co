@@ -38,7 +38,7 @@ export function NavMenu({ isSheet = false }) {
         const Comp = (
           <Anchor
             absolute
-            activeClassName={demoButton ? 'text-white' : 'font-semibold text-[#6D49B8]'}
+            activeClassName={demoButton ? 'text-white' : 'font-semibold text-[var(--brand-action)]'}
             className={
               demoButton
                 ? buttonVariants({
