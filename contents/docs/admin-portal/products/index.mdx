@@ -3,52 +3,53 @@ title: "Products"
 description: "Add and manage everything you sell. To add a product:"
 keywords: ["BeautyComm","Admin Panel","Products"]
 ---
+
 ## Products
 
-Use this page to find the guides for the items listed below. Select a card to move to the matching section on this page.
+The Products menu contains: **Add New Product**, **All Products**, **Brand Category**, **Events** and **Barcode Import**.
 
-<CardGrid>
-  <Card title="Manage Products" description="Find guidance and steps for manage products." href="#manage-products" />
-  <Card title="Shades & Variations" description="Find guidance and steps for shades & variations." href="#shades-and-variations" />
-  <Card title="Authenticity" description="Find guidance and steps for authenticity." href="#authenticity" />
-  <Card title="Suppliers" description="Find guidance and steps for suppliers." href="#suppliers" />
-</CardGrid>
+### Add a product
 
-## Manage Products
+1. Open Products > Add New Product.
+2. Under **Basic Information**, enter the Product Name (required), Japanese Name, Barcode and Published Status.
+3. Under **Pricing**, enter Unit Price (required), Purchase Price (required), Cost Price and Cost Price (JPY). Optionally set a Discount and a Discount Type (Percent by default).
+4. Scroll down to add the description, images, category, brand and stock quantity.
+5. Save, then open the product on the storefront to check how it looks.
 
-Products is the working catalogue where every item sold in the store is created and maintained.
+![Add New Product page](/images/admin/ss03-add-new-product.png)
 
-1. Under Product Management in the left sidebar, open **Products**.
-2. Select **Add New Product** to create an item.
-3. Enter the product name, Japanese name, barcode, description, category, brand and photos.
-4. Set the unit price, purchase price and cost price. Add a discount and choose its type if needed.
-5. Set **Published Status** to Published when the item is ready for the storefront.
-6. Complete the remaining fields, save the product and confirm it appears in **All Products**.
-7. Use the edit icon to update an item, or the bin icon to delete it.
+### All Products
 
-## Shades & Variations
+- The tabs at the top are **All**, **Published**, **Unpublished**, **Approved** and **Price Mismatch**, each with a count.
+- Filter by Product Status, Stock Filter or Published Status, or use the search box, then select **Filter**. **Clear** resets everything.
+- Columns include ID, Barcode, Stock, Sale Price, Discount and the toggles **is private**, **is New**, **Published** and **Is Request Available**.
+- Use the edit and delete icons in **Action** to change or remove a product.
 
-Use variations when one product comes in different shades, sizes or packs.
+![All Products list](/images/admin/ss04-all-products.png)
 
-- Open the product and go to its Variations section.
-- Add each shade, size or pack as its own option with a name, price and stock count.
-- Upload a photo for each variation so customers can identify the exact option.
-- Save the product and confirm the variation selector appears on its storefront page.
+**Brand Category** groups products by brand and category. **Events** links products to promotional events and seasonal campaigns. **Barcode Import** adds barcodes to many products at once from a file.
 
-## Authenticity
+## Verify Products
 
-Authenticity management supports the Verify Product feature on the storefront.
+The Verify Products menu contains: **All Verify Products** and **Add Verify Product**.
 
-1. Open **Verify Products** in the left sidebar.
-2. Generate or import the authenticity codes that belong to a product batch.
-3. Link each batch to its product so the code returns the right details.
-4. Print or attach codes to packaging through your normal process.
-5. Test one code on the storefront to confirm it verifies correctly.
+Verify Products powers the authenticity check on the storefront.
 
-## Suppliers
+1. Open Add Verify Product.
+2. Enter the product details and the authenticity code or batch it belongs to.
+3. Save, then test the code on the storefront to confirm it verifies.
 
-Keep a record of who supplies your products so reordering is quick.
+The list has a search box and **Filter** / **Clear** buttons.
 
-- Add a supplier with its name, contact details and the products it provides.
-- Link products to their supplier from the product or supplier page.
-- Update contact details when they change, and remove suppliers you no longer use.
+## Product Reviews
+
+The Product Reviews menu contains: **Product Reviews** and **Add New Product Review**.
+
+1. Open Product Reviews to see all reviews. The sidebar shows the total count.
+2. Narrow the list with Bulk Action, Rating Order, the filters or **Filter by Products**.
+3. Approve, hide or delete reviews that break your rules.
+4. Use **Add Review** to enter a review manually.
+
+## Product Authenticity
+
+Holds the authenticity records linked to Verify Products. Use it to look up a code, see whether it has been checked by a customer, and flag a suspicious product.

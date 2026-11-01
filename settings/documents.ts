@@ -23,7 +23,7 @@ const adminPortalPages = [
   { title: 'Shipping', href: '/shipping-and-delivery-management' },
   { title: 'Returns & Refunds', href: '/returns-and-refund-management' },
   { title: 'Promotions', href: '/campaigns-and-banner-management' },
-  { title: 'Rewards', href: '/membership-and-reward-points' },
+  { title: 'Membership', href: '/membership-and-reward-points' },
   { title: 'Consultation', href: '/beauty-consultation-management' },
   { title: 'Content', href: '/beauty-tips-and-blog-management' },
   { title: 'Customer Insights', href: '/customer-insights-and-analytics' },

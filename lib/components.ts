@@ -2,6 +2,7 @@ import { Card, CardGrid } from '@/components/markdown/card'
 import { FileTree } from '@/components/markdown/filetree'
 import { File, Folder } from '@/components/markdown/filetree/component'
 import { Route } from '@/components/markdown/link'
+import { MarkdownImage } from '@/components/markdown/markdown-image'
 import { Mermaid } from '@/components/markdown/mermaid'
 import { Note } from '@/components/markdown/note'
 import { ReleaseEntry } from '@/components/markdown/release'
@@ -23,6 +24,7 @@ export const components = {
   FileTree,
   Folder,
   File,
+  img: MarkdownImage,
   Mermaid,
   Note,
   pre: Pre,
